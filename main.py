@@ -7,7 +7,7 @@ import logging
 import numpy as np
 from typing import List, Dict, Tuple, Any
 
-# Import your existing modules
+
 from dataloader import load_file, trim_timesteps, apply_time_windows
 from five_fold_cv import create_valid_combinations
 from likelihood_distribution import create_likelihood_distribution, validate_likelihood_distribution
@@ -22,12 +22,12 @@ from scipy.stats import entropy
 # Configuration dictionary to centralize parameters
 CONFIG = {
     'kfold': 5,
-    'max_combinations': 20,  # Your setting, can adjust to 20 as per Garcia et al.
+    'max_combinations': 20,  #can adjust to 20 as per Garcia et al.
     'timesteps': 70,
     'window_size': 10,
     'stride': 5,
     'n_classes': 4,
-    'nominal_proportion': 0.8997,  # Your consistent value
+    'nominal_proportion': 0.8997,  # %89.97 nominal for imbalanced
     'train_anomaly_total': 760,  # 760 per anomaly class for balanced training
     'test_total': 3000,  # 760 per class for balanced testing
     'num_patterns': 24,
@@ -102,8 +102,6 @@ def run_cross_validation(file_path: str, config: Dict) -> List[Dict]:
             y_train, y_test = labels[train_idx], labels[test_idx]
 
             # --- 3b. Fit Normalizer ONLY on training data and transform both sets ---
-            # This is the fix for the normalization data leak.
-            # We create a new normalization function that can fit and transform separately.
             mean_train, std_train = np.mean(X_train_raw, axis=(0, 1)), np.std(X_train_raw, axis=(0, 1))
 
             def transform_data(data, mean, std):
@@ -123,7 +121,6 @@ def run_cross_validation(file_path: str, config: Dict) -> List[Dict]:
             X_test_windowed = apply_time_windows(X_test_trimmed, config['window_size'], config['stride'])
 
             # --- 3d. Create low-correlation feature combinations ---
-            # This uses only the training data for the fold, which is correct.
             valid_combinations = create_valid_combinations(X_train_windowed, num_comb=config['max_combinations'],
                                                            fold_idx=fold_idx)
             feature_mappings = [{global_idx: local_idx for local_idx, global_idx in enumerate(subset)} for subset in
@@ -216,7 +213,7 @@ def process_single_fold(
             f"Fold {fold_idx}: Train patterns shape: {train_patterns.shape}, Test patterns shape: {test_patterns.shape}")
 
         # --- STEP 2: Create Likelihood Distributions (The "Model Training") ---
-        # This uses ONLY the training patterns, which is correct.
+        # This uses ONLY the training patterns
         binary_distributions, minority_distributions = [], []
         n_windows_ld = (config['timesteps'] - config['window_size']) // config['stride'] + 1
         ld_config = {
@@ -273,7 +270,7 @@ def process_single_fold(
             logger.info("Generated diagnostic likelihood comparison plot.")
         # --- END DIAGNOSTIC ---
         # --- STEP 3: Perform Sensor Fusion ---
-        # This is the fix for the uncertainty data leak.
+
         # We pass `train_patterns` and `y_train` as the reference set for uncertainty calculation.
         results = perform_sensor_fusion(
             training_data_windowed=X_train_windowed,
@@ -285,7 +282,7 @@ def process_single_fold(
             likelihood_distributions_all=likelihood_distributions_all,
             valid_combinations=valid_combinations,
             feature_mappings=feature_mappings,
-            # Critical Fix: Use training data as the reference for uncertainty
+
             all_patterns=train_patterns,
             all_labels=y_train,
             fold_idx=fold_idx,

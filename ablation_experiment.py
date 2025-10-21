@@ -1,4 +1,4 @@
-# run_experiment.py
+
 
 import time
 from typing import Dict
@@ -8,7 +8,7 @@ from collections import defaultdict
 import logging
 from scipy.stats import entropy
 
-# --- ADD THESE IMPORTS ---
+
 from sklearn.metrics import matthews_corrcoef, f1_score, precision_score, recall_score, balanced_accuracy_score
 
 from main import run_cross_validation, setup_logging, CONFIG
@@ -66,9 +66,7 @@ def run_experiment(file_path: str, config: Dict):
             f1s.append(f1_score(y_true, y_pred, average='micro'))
             mccs.append(matthews_corrcoef(y_true, y_pred))
 
-            # ======================================================================
-            # <<< THIS IS THE FIX: Calculate metrics for EACH model >>>
-            # ======================================================================
+
             balanced_accs.append(balanced_accuracy_score(y_true, y_pred))
             per_class_f1s.append(f1_score(y_true, y_pred, labels=class_labels, average=None, zero_division=0))
             per_class_precisions.append(precision_score(y_true, y_pred, labels=class_labels, average=None, zero_division=0))

@@ -5,10 +5,7 @@ import xgboost as xgb
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import f1_score, confusion_matrix, matthews_corrcoef, roc_auc_score, roc_curve
-from sklearn.model_selection import train_test_split
-from itertools import chain
-from scipy.stats import entropy
-from sklearn.utils import resample
+
 from typing import Dict, List, Optional, Tuple, Union
 import time
 
@@ -215,7 +212,7 @@ def dempster_combination_rule(boe1: Dict[str, float], boe2: Dict[str, float]) ->
     return {k: v / total_mass for k, v in combined_masses.items()}, K
 
 
-# In sensor_fusion.py
+
 
 def convert_boe_to_pignistic(boe: Dict[str, float], class_labels: list) -> Dict[str, float]:
     """
@@ -459,14 +456,14 @@ def hierarchical_sensor_fusion(
             for comb_idx in range(n_combinations):
                 window_boes_flight_comb = pattern_boes_all_combs[comb_idx][i]
                 if len(window_boes_flight_comb) > 0:
-                    # === APPLY TEMPORAL DISCOUNTING FOR OVERLAPPING WINDOWS ===
+
                     fused_comb_boe, avg_win_conflict = fuse_all_boes(
                         window_boes_flight_comb,
                         class_labels,
                         apply_temporal_discount=False,  # Enable for temporal windows
                         overlap_ratio=0.5  # (window_size - stride) / window_size
                     )
-                    # === END CHANGE ===
+
                     # Use original fusion weights directly without adjustment
                     w_dst = fusion_weights['dst']
                     weighted_boe = {k: v * w_dst for k, v in fused_comb_boe.items()}
@@ -483,7 +480,7 @@ def hierarchical_sensor_fusion(
             all_conflicts[i] = 1.0
             continue
 
-        # --- The NEW, CORRECTED block ---
+
         fused_final_boe, final_conflict = fuse_all_boes(boes_to_fuse_flight, class_labels)
         all_conflicts[i] = final_conflict
 
@@ -954,39 +951,3 @@ def perform_sensor_fusion(
         }
     }
 
-
-
-
-#Seperate idea:
-"""
-            # ==============================================================================
-            # ### --- INTELLIGENT FUSION: Confidence-Based Override ("Safety Net") --- ###
-            # ==============================================================================
-            logger.info("Applying dynamic, confidence-based override ('Safety Net')...")
-            override_mask = np.zeros(n_flights_test, dtype=bool)
-            rf_confidences = test_rf_probs.max(axis=1)
-
-            for i in range(n_flights_test):
-                max_s, omega = dst_confidence_metrics(final_pignistics[i])
-                if max_s < 0.35 or omega > 0.45:
-                    override_mask[i] = True
-
-            override_count = np.sum(override_mask)
-            logger.info(
-                f"Overriding {override_count}/{n_flights_test} flights ({override_count / n_flights_test:.2%}) due to low DST confidence.")
-
-            # Apply the override for flights that met the condition
-            final_pred_fused[override_mask] = test_rf_preds[override_mask]
-            final_confidences[override_mask] = rf_confidences[override_mask]
-
-            # Preserve explainability: store the fallback without erasing the original
-            for idx in np.where(override_mask)[0]:
-                rf_fallback = {str(cls): float(p) for cls, p in enumerate(test_rf_probs[idx])}
-                if final_pignistics[idx]:
-                    final_pignistics[idx]['rf_fallback'] = rf_fallback
-                else:
-                    final_pignistics[idx] = {'rf_fallback': rf_fallback, 'Ω': 1.0}
-            # ==============================================================================
-
-
-           """

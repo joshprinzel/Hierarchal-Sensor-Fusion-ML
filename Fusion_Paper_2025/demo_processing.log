@@ -1,0 +1,125 @@
+2025-11-25 17:09:32,063 - INFO - Loaded raw data shape: (99837, 160, 20), labels: (99837,)
+2025-11-25 17:09:32,075 - INFO - Memory usage at start of fold 0: 2640.91 MB
+2025-11-25 17:09:41,540 - INFO - Fold 0: Train patterns shape: (5, 7577, 70), Test patterns shape: (5, 2000, 70)
+2025-11-25 17:09:42,656 - INFO - Generated diagnostic likelihood comparison plot.
+2025-11-25 17:13:03,334 - INFO - Memory usage at end of fold 0: 8856.09 MB
+2025-11-25 17:13:03,404 - INFO - Memory usage at start of fold 1: 8846.93 MB
+2025-11-25 17:13:13,984 - INFO - Fold 1: Train patterns shape: (5, 7577, 70), Test patterns shape: (5, 2000, 70)
+2025-11-25 17:16:29,483 - INFO - Memory usage at end of fold 1: 8888.59 MB
+2025-11-25 17:16:29,554 - INFO - Memory usage at start of fold 2: 8879.43 MB
+2025-11-25 17:16:39,243 - INFO - Fold 2: Train patterns shape: (5, 7577, 70), Test patterns shape: (5, 2000, 70)
+2025-11-25 17:19:55,812 - INFO - Memory usage at end of fold 2: 8915.00 MB
+2025-11-25 17:19:55,873 - INFO - Memory usage at start of fold 3: 8906.67 MB
+2025-11-25 17:20:05,246 - INFO - Fold 3: Train patterns shape: (5, 7577, 70), Test patterns shape: (5, 2000, 70)
+2025-11-25 17:23:26,500 - INFO - Memory usage at end of fold 3: 8966.30 MB
+2025-11-25 17:23:26,566 - INFO - Memory usage at start of fold 4: 8955.69 MB
+2025-11-25 17:23:36,279 - INFO - Fold 4: Train patterns shape: (5, 7577, 70), Test patterns shape: (5, 2000, 70)
+2025-11-25 17:26:48,195 - INFO - Memory usage at end of fold 4: 8992.57 MB
+2025-11-25 17:26:48,736 - INFO - ==================================================
+2025-11-25 17:26:48,736 - INFO - HIERARCHICAL ANOMALY DETECTION SUMMARY
+2025-11-25 17:26:48,737 - INFO - ==================================================
+2025-11-25 17:26:48,737 - INFO - Fold 0 - binary_probs structure: <class 'dict'>, sample: {'0': 0.7906744874616287, '1': 0.2093255125383712, 'Ω': 0.35890942627461775}
+2025-11-25 17:26:48,737 - INFO - Fold 0 - F1 Micro: 0.9400, MCC: 0.6307
+2025-11-25 17:26:48,737 - INFO -   - Nominal: Precision: 0.9518, Recall: 0.9861, F1: 0.9686
+2025-11-25 17:26:48,738 - INFO -   - High Speed: Precision: 0.7349, Recall: 0.4420, F1: 0.5520
+2025-11-25 17:26:48,738 - INFO -   - High Path: Precision: 0.7778, Recall: 0.6512, F1: 0.7089
+2025-11-25 17:26:48,738 - INFO -   - Late Flaps: Precision: 1.0000, Recall: 0.8333, F1: 0.9091
+2025-11-25 17:26:48,738 - INFO - Fold 1 - binary_probs structure: <class 'dict'>, sample: {'0': 0.6438459890867916, '1': 0.3561540109132084, 'Ω': 0.3558686703491879}
+2025-11-25 17:26:48,739 - INFO - Fold 1 - F1 Micro: 0.9390, MCC: 0.6149
+2025-11-25 17:26:48,739 - INFO -   - Nominal: Precision: 0.9459, Recall: 0.9900, F1: 0.9674
+2025-11-25 17:26:48,739 - INFO -   - High Speed: Precision: 0.8088, Recall: 0.3986, F1: 0.5340
+2025-11-25 17:26:48,739 - INFO -   - High Path: Precision: 0.7812, Recall: 0.5814, F1: 0.6667
+2025-11-25 17:26:48,739 - INFO -   - Late Flaps: Precision: 1.0000, Recall: 0.8333, F1: 0.9091
+2025-11-25 17:26:48,739 - INFO - Fold 2 - binary_probs structure: <class 'dict'>, sample: {'0': 0.7729053655910126, '1': 0.2270946344089873, 'Ω': 0.3541601929652072}
+2025-11-25 17:26:48,740 - INFO - Fold 2 - F1 Micro: 0.9465, MCC: 0.6693
+2025-11-25 17:26:48,740 - INFO -   - Nominal: Precision: 0.9532, Recall: 0.9944, F1: 0.9734
+2025-11-25 17:26:48,740 - INFO -   - High Speed: Precision: 0.8429, Recall: 0.4275, F1: 0.5673
+2025-11-25 17:26:48,740 - INFO -   - High Path: Precision: 0.7838, Recall: 0.6744, F1: 0.7250
+2025-11-25 17:26:48,740 - INFO -   - Late Flaps: Precision: 1.0000, Recall: 0.7778, F1: 0.8750
+2025-11-25 17:26:48,740 - INFO - Fold 3 - binary_probs structure: <class 'dict'>, sample: {'0': 0.7582466216450481, '1': 0.24175337835495186, 'Ω': 0.364884141656322}
+2025-11-25 17:26:48,741 - INFO - Fold 3 - F1 Micro: 0.9480, MCC: 0.6863
+2025-11-25 17:26:48,741 - INFO -   - Nominal: Precision: 0.9575, Recall: 0.9889, F1: 0.9730
+2025-11-25 17:26:48,741 - INFO -   - High Speed: Precision: 0.7922, Recall: 0.4420, F1: 0.5674
+2025-11-25 17:26:48,741 - INFO -   - High Path: Precision: 0.8298, Recall: 0.9070, F1: 0.8667
+2025-11-25 17:26:48,741 - INFO -   - Late Flaps: Precision: 0.9375, Recall: 0.8333, F1: 0.8824
+2025-11-25 17:26:48,742 - INFO - Fold 4 - binary_probs structure: <class 'dict'>, sample: {'0': 0.7907388062816976, '1': 0.20926119371830243, 'Ω': 0.3500482084031341}
+2025-11-25 17:26:48,742 - INFO - Fold 4 - F1 Micro: 0.9425, MCC: 0.6505
+2025-11-25 17:26:48,742 - INFO -   - Nominal: Precision: 0.9543, Recall: 0.9861, F1: 0.9700
+2025-11-25 17:26:48,742 - INFO -   - High Speed: Precision: 0.7922, Recall: 0.4420, F1: 0.5674
+2025-11-25 17:26:48,743 - INFO -   - High Path: Precision: 0.7609, Recall: 0.8140, F1: 0.7865
+2025-11-25 17:26:48,743 - INFO -   - Late Flaps: Precision: 0.8125, Recall: 0.7222, F1: 0.7647
+2025-11-25 17:26:48,743 - INFO - Average F1 Micro: 0.9432, Average MCC: 0.6503
+2025-11-25 17:26:48,748 - INFO - Aggregate F1 Micro: 0.9432
+2025-11-25 17:26:48,750 - INFO - Aggregate MCC: 0.6503
+2025-11-25 17:26:48,751 - INFO - Aggregate Binary Stage Confusion Matrix:
+[[8907   98]
+ [ 444  551]]
+2025-11-25 17:26:48,755 - INFO - Aggregate Per-Class Metrics:
+2025-11-25 17:26:48,756 - INFO -   - Nominal: Precision: 0.9525, Recall: 0.9891, F1: 0.9705
+2025-11-25 17:26:48,756 - INFO -   - High Speed: Precision: 0.7920, Recall: 0.4304, F1: 0.5577
+2025-11-25 17:26:48,756 - INFO -   - High Path: Precision: 0.7879, Recall: 0.7256, F1: 0.7554
+2025-11-25 17:26:48,756 - INFO -   - Late Flaps: Precision: 0.9474, Recall: 0.8000, F1: 0.8675
+2025-11-25 17:26:48,878 - INFO - Aggregate Confusion Matrix:
+[[8907   67   29    2]
+ [ 380  297   13    0]
+ [  53    4  156    2]
+ [  11    7    0   72]]
+2025-11-25 17:26:48,878 - INFO - Saved aggregate confusion matrix to confusion_matrix_aggregate_hierarchical_fusion.png
+2025-11-25 17:26:48,990 - INFO - Aggregate Binary AUC: 0.8786
+2025-11-25 17:26:48,990 - INFO - Saved aggregate ROC curve to roc_curve_aggregate_hierarchical_fusion.png
+2025-11-25 17:26:48,990 - INFO - ==================================================
+2025-11-25 17:26:48,990 - INFO - UNCERTAINTY AND ROUTING ANALYSIS
+2025-11-25 17:26:48,990 - INFO - ==================================================
+2025-11-25 17:26:49,002 - INFO - 
+======================================================================
+2025-11-25 17:26:49,002 - INFO -  GENERATING AWARD-QUALITY VISUALIZATIONS
+2025-11-25 17:26:49,003 - INFO - ======================================================================
+2025-11-25 17:26:49,004 - INFO - 
+[NEW] Generating 2D Uncertainty Heatmap...
+2025-11-25 17:26:50,869 - INFO - ✓ Generated: Fig/uncertainty_heatmap.pdf
+2025-11-25 17:26:50,869 - INFO - 
+[NEW] Generating Class Uncertainty Profiles...
+2025-11-25 17:26:53,004 - INFO - Generated class uncertainty profiles for fold aggregate
+2025-11-25 17:26:53,004 - INFO - ✓ Generated: Fig/class_uncertainty_profiles_fold_aggregate.pdf
+2025-11-25 17:26:53,004 - INFO - 
+[NEW] Generating Reliability Slices (confidence X uncertainty...
+2025-11-25 17:26:53,326 - INFO - ✓ Generated: Fig/reliability_slices.pdf
+2025-11-25 17:26:53,326 - INFO - 
+[1] Uncertainty Calibration Plot
+2025-11-25 17:26:53,519 - INFO - Generated Uncertainty Calibration Plot: Fig/uncertainty_calibration.pdf
+2025-11-25 17:26:53,519 - INFO - 
+=== QUARTILE STATISTICS ===
+2025-11-25 17:26:53,519 - INFO - Q1 [0.19, 0.34]: 0.9500 (95.00%)
+2025-11-25 17:26:53,519 - INFO - Q2 [0.34, 0.35]: 0.9520 (95.20%)
+2025-11-25 17:26:53,519 - INFO - Q3 [0.35, 0.37]: 0.9536 (95.36%)
+2025-11-25 17:26:53,519 - INFO - Q4 [0.37, 0.53]: 0.9172 (91.72%)
+2025-11-25 17:26:53,519 - INFO - 
+[2] Uncertainty vs Accuracy
+2025-11-25 17:26:53,672 - INFO - 
+[3] Uncertainty by Class Table
+2025-11-25 17:26:53,818 - INFO - 
+LaTeX Table (Uncertainty by Class):
+\begin{tabular}{llll}
+\toprule
+Class & Avg m(Ω) & % High Unc & Accuracy \\
+\midrule
+Nominal & 0.35 ± 0.02 & 0.1% & 98.9% \\
+High Speed & 0.36 ± 0.04 & 1.2% & 43.0% \\
+High Path & 0.32 ± 0.06 & 0.0% & 72.6% \\
+Late Flaps & 0.32 ± 0.06 & 1.1% & 80.0% \\
+\bottomrule
+\end{tabular}
+
+2025-11-25 17:26:53,819 - INFO - 
+[4] Routing Analysis
+2025-11-25 17:26:54,882 - INFO - 
+[5] Uncertainty Comparison
+2025-11-25 17:26:55,141 - INFO - 
+======================================================================
+2025-11-25 17:26:55,141 - INFO -  ALL VISUALIZATIONS COMPLETE
+2025-11-25 17:26:55,141 - INFO - ======================================================================
+2025-11-25 17:26:55,141 - INFO - ==================================================
+2025-11-25 17:26:55,141 - INFO - SWC AVIATION VALIDATION (CLEAN SWC FUSION)
+2025-11-25 17:26:55,141 - INFO - ==================================================
+2025-11-25 17:26:55,803 - INFO - SWC calibration: r = -0.885, p = 0.0007
+2025-11-25 17:26:55,803 - INFO - SWC vs XGBoost metrics: {'xgb': {'f1': 0.9441, 'mcc': 0.6530535192731716}, 'swc': {'f1': 0.9441, 'mcc': 0.6530535192731716}}
